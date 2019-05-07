@@ -1,0 +1,135 @@
+{
+    "title": "SubscriptionDefinitionsClient",
+    "description": "Subscription definitions client provides an interface to create, modify and retrieve azure subscriptions programmatically.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/subscription-subscriptionDefinitions/2017-11-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "SubscriptionDefinitionsOperationMetadata_list": {
+            "main": "./lib/actions/SubscriptionDefinitionsOperationMetadata_list.js",
+            "title": "Lists all of the available Microsoft.Subscription API operations.",
+            "description": "Lists all of the available Microsoft.Subscription API operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SubscriptionDefinitionsOperationMetadata_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SubscriptionDefinitions_List": {
+            "main": "./lib/actions/SubscriptionDefinitions_List.js",
+            "title": "List an Azure subscription definition by subscriptionId.",
+            "description": "List an Azure subscription definition by subscriptionId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SubscriptionDefinitions_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SubscriptionDefinitions_Get": {
+            "main": "./lib/actions/SubscriptionDefinitions_Get.js",
+            "title": "Get an Azure subscription definition.",
+            "description": "Get an Azure subscription definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SubscriptionDefinitions_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SubscriptionDefinitions_Create": {
+            "main": "./lib/actions/SubscriptionDefinitions_Create.js",
+            "title": "Create an Azure subscription definition.",
+            "description": "Create an Azure subscription definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SubscriptionDefinitions_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SubscriptionDefinitions_GetOperationStatus": {
+            "main": "./lib/actions/SubscriptionDefinitions_GetOperationStatus.js",
+            "title": "Retrieves the status of the subscription definition PUT operation. The URI of this API is returned in the Location field of the response header.",
+            "description": "Retrieves the status of the subscription definition PUT operation. The URI of this API is returned in the Location field of the response header.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SubscriptionDefinitions_GetOperationStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
